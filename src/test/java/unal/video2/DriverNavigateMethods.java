@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class DriverNavigateMethods {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
 
@@ -20,6 +20,16 @@ public class DriverNavigateMethods {
         driver.navigate().back();
 
         //next to forward page
+        driver.navigate().forward();
+
+        //to refresh
+        driver.navigate().refresh();
+
+        //if you have just single window
+        driver.close();
+
+        //if you have multiple windows
+        //driver.quit();
 
 
     }

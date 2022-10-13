@@ -37,6 +37,9 @@ public class DriverManageMethods {
         System.out.println("new window sizes: " + driver.manage().window().getSize());//new window sizes: (1348, 758)
         System.out.println("new page location: " + driver.manage().window().getPosition());//new page location: (0, 0)
 
+        //minimize window
+        driver.manage().window().minimize();
+
 
 
 

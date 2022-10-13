@@ -11,5 +11,16 @@ public class DriverNavigateMethods {
         WebDriver driver = new ChromeDriver();
 
 
+        driver.get("https://www.amazon.com");
+
+        //another version  beside of get method to land on webpage as usual navigate method is used navigates of between pages as well.
+        driver.navigate().to("https://www.facebook.com");
+
+        // back to previous page
+        driver.navigate().back();
+
+        //next to forward page
+
+
     }
 }

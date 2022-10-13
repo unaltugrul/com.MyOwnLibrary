@@ -6,10 +6,15 @@ import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.time.Duration;
+
 public class DriverManageMethods {
     public static void main(String[] args) {
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
+        driver.manage().window().maximize();
+        //implicitly wait (we use when open every opening page)
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
 
         //gives to me pixel of page size
         System.out.println(driver.manage().window().getSize()); //----> (1052, 698)

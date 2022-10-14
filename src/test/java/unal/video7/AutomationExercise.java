@@ -37,10 +37,14 @@ public class AutomationExercise {
         //7. Click 'login' button
         driver.findElement(By.xpath("//button[@data-qa='login-button']")).click();
         //8. Verify that 'Logged in as username' is visible
-
+        Assert.assertTrue(driver.findElement(By.xpath("//ul[@class='nav navbar-nav']/li[10]")).isDisplayed());
         //9. Click 'logout' button
+        driver.findElement(By.xpath("//ul[@class='nav navbar-nav']/li[4]")).click();
         //10. Verify that user is navigated to login page
+        Assert.assertTrue(driver.findElement(By.xpath("//div[@class='login-form']/h2[1]")).isDisplayed());
+
         //11. Close driver
+        driver.close();
 
 
     }

@@ -9,7 +9,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.time.Duration;
 
-public class JunitImplementation {
+public class $_1_JunitImplementation {
 
     @Test
     public void test1(){

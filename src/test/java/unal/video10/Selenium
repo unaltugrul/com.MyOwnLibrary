@@ -11,4 +11,4 @@ Disadvantages
 -We can not automate captcha
 
 How we can do Test Automation ?
-We use Webdriver libary with 
+We use Webdriver libary with Selenium Library

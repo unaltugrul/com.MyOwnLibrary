@@ -5,9 +5,13 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.time.Duration;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class AutomationExercise2 {
 
@@ -38,6 +42,44 @@ public class AutomationExercise2 {
         Assert.assertTrue(driver.findElement(By.xpath("//div[@class='features_items']/h2[1]")).isDisplayed());
 
 
+    }
+
+
+    //My friend asked this question and we discussed it while we were studying this is a good approach to compare two lists
+    @Test
+    public void test2() throws InterruptedException {
+        WebDriverManager.chromedriver().setup();
+        WebDriver driver = new ChromeDriver();
+        driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+        //2. Navigate to url 'http://automationexercise.com'
+        driver.get("http://automationexercise.com");
+
+        driver.findElement(By.xpath("//a[@href='/products']")).click();
+        driver.findElement(By.xpath("(//a[@data-product-id='1'])[1]")).click();
+        Thread.sleep(2000);
+        driver.findElement(By.xpath("//button[@class='btn btn-success close-modal btn-block']")).click();
+        driver.findElement(By.xpath("(//a[@data-product-id='2'])[1]")).click();
+        Thread.sleep(2000);
+        driver.findElement(By.xpath("//button[@class='btn btn-success close-modal btn-block']")).click();
+        driver.findElement(By.xpath("(//a[@href='/view_cart'])[1]")).click();
+
+
+        List<WebElement> productNames = driver.findElements(By.xpath("//td[@class='cart_description']//a"));
+        for (WebElement eachElement : productNames) {
+            System.out.println("eachElement.getText() = " + eachElement.getText());
+        }
+
+        String[] ExpectedList = {"Blue Top","Men Tshirt"};
+        ArrayList<String> ExpectedArrayList = new ArrayList<>(Arrays.asList(ExpectedList));
+        ArrayList<String> actualList = new ArrayList<>();
+        for (int i = 0; i < productNames.size(); i++) {
+            actualList.add(i,productNames.get(i).getText());
+        }
+        System.out.println("ExpectedList = " + Arrays.asList(ExpectedList));
+        System.out.println("actualList = " + actualList);
+
+        Assert.assertEquals(ExpectedArrayList,actualList);
     }
 
 }

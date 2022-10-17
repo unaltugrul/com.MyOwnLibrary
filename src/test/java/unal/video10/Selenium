@@ -1,0 +1,17 @@
+Advantages
+-Free and Open source
+-Supports Java, Phyton, PHP, C# etc.
+-Supports all browsers
+-Works on all OSz
+
+Disadvantages
+-We can use just for web based applications but with Appium we can use for mobile applications
+-Selenium is not a company that is why doesn't have professional support
+-We can not do performance testing
+-We can not automate captcha
+
+How we can do Test Automation ?
+We use Webdriver libary with Selenium Library
+Also we need Maven build ----> Pom.xml
+
+Maven ---> Build tool
